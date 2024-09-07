@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $count = 10;
+        $count = 100;
 
         for ($index = 0; $index < $count; $index++) {
             $this->createUser();
@@ -37,12 +37,14 @@ class HomeController extends Controller
 
     private function createUser(): void
     {
+
+        $unique = bin2hex(random_bytes(16));
         User::create([
-            'name' => time(),
-            'email' => time() . '@gmail.com',
+            'name' => $unique,
+            'email' => $unique . '@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => time(),
+            'remember_token' => $unique,
         ]);
     }
 }

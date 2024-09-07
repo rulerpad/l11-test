@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $count = 100;
+        $count = 10;
 
         for ($index = 0; $index < $count; $index++) {
             $this->createUser();
